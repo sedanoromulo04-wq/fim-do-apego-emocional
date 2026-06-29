@@ -3,10 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#CC0000">
 <title>Fim do Apego Emocional</title>
+<!-- DNS prefetch para fontes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Carregamento não-bloqueante de fontes com font-display:swap -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Open+Sans:wght@400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"></noscript>
+<!-- Preload do poster do hero (renderiza instantaneamente acima da dobra) -->
+<link rel="preload" as="image" href="uploads/opt/hero-poster.webp" fetchpriority="high">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 html,body{background:#f5f5f5;}
@@ -21,6 +28,11 @@ body{font-family:'Open Sans',sans-serif;color:#1a1a1a;overflow-x:hidden;}
   --border:#e0e0e0;
   --heading:'Oswald',sans-serif;
 }
+/* Fallback de fonte system-ui até Google Fonts carregar — evita FOIT */
+body{font-family:'Open Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+h1,h2,h3,.sec-title,.step-title,.bonus-name,.access-title,.step-label,.step-desc,
+.offer-price,.offer-price-sub,.cta-btn,.cta-btn-white,.guarantee-card h2,
+.author-name,.access-title,.path-title{font-family:'Oswald',system-ui,-apple-system,sans-serif;}
 @keyframes pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(139,0,0,.45),0 8px 24px rgba(139,0,0,.35);}50%{transform:scale(1.025);box-shadow:0 0 0 12px rgba(139,0,0,0),0 8px 24px rgba(139,0,0,.35);}}
 @keyframes blink{0%,49%{opacity:1;}50%,100%{opacity:.2;}}
 .wrap{position:relative;width:100%;max-width:520px;margin:0 auto;background:var(--bg2);min-height:100vh;}
@@ -30,8 +42,8 @@ body{font-family:'Open Sans',sans-serif;color:#1a1a1a;overflow-x:hidden;}
 #progress-bar{height:100%;width:0%;background:var(--red);transition:width .15s linear;}
 
 /* HERO */
-.hero{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;border-bottom:1px solid var(--border);}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hero{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center;justify-content:center;text-align:center;border-bottom:1px solid var(--border);background:#111;contain:layout;}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;will-change:auto;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.7) 100%);z-index:1;}
 .hero-content{position:relative;z-index:3;padding:48px 20px 40px;width:100%;}
 .hero h1{font-family:var(--heading);font-weight:700;font-size:28px;line-height:1.1;color:#fff;text-align:center;font-style:italic;text-transform:uppercase;letter-spacing:.01em;}
@@ -99,6 +111,9 @@ section{padding:32px 20px;}
 .step-note{margin-top:28px;background:var(--bg);border-radius:10px;padding:16px;border-left:4px solid var(--red);}
 .step-note p{font-family:var(--heading);font-weight:700;font-size:14px;color:var(--text);text-align:center;}
 
+/* content-visibility para seções abaixo da dobra (skip rendering até scroll) */
+.bonus-section,.science-section,.for-you-section,.recap-section,.guarantee-section,.paths-section,.author-section,.access-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
+
 /* BÔNUS */
 .bonus-section{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .bonus-list{display:flex;flex-direction:column;gap:14px;}
@@ -148,7 +163,7 @@ section{padding:32px 20px;}
 .offer-price{font-family:var(--heading);font-weight:900;font-size:36px;color:var(--red);line-height:1;}
 .offer-price-sub{font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text2);margin-top:6px;}
 .offer-price-note{font-size:12px;color:var(--text2);margin-top:4px;}
-.cta-btn{display:block;margin-top:20px;text-align:center;text-decoration:none;font-family:var(--heading);font-weight:800;font-size:15px;letter-spacing:.03em;text-transform:uppercase;color:#fff;background:var(--red);border-radius:8px;padding:18px;animation:pulse 2s ease-in-out infinite;}
+.cta-btn{display:block;margin-top:20px;text-align:center;text-decoration:none;font-family:var(--heading);font-weight:800;font-size:15px;letter-spacing:.03em;text-transform:uppercase;color:#fff;background:var(--red);border-radius:8px;padding:18px;animation:pulse 2s ease-in-out infinite;will-change:transform;}
 .offer-trust{font-size:11px;color:var(--text2);margin-top:12px;}
 
 /* GARANTIA */
@@ -178,7 +193,7 @@ section{padding:32px 20px;}
 .urgency-section{background:var(--red);padding:28px 20px;text-align:center;}
 .urgency-section h2{font-family:var(--heading);font-weight:800;font-size:16px;color:#fff;margin-bottom:6px;}
 .urgency-section p{font-size:13px;color:rgba(255,255,255,.85);margin-bottom:18px;}
-.cta-btn-white{display:inline-block;text-decoration:none;font-family:var(--heading);font-weight:800;font-size:14px;letter-spacing:.03em;text-transform:uppercase;color:var(--red);background:#fff;border-radius:8px;padding:16px 24px;animation:pulse 2s ease-in-out infinite;}
+.cta-btn-white{display:inline-block;text-decoration:none;font-family:var(--heading);font-weight:800;font-size:14px;letter-spacing:.03em;text-transform:uppercase;color:var(--red);background:#fff;border-radius:8px;padding:16px 24px;animation:pulse 2s ease-in-out infinite;will-change:transform;}
 .urgency-note{font-size:11px;color:rgba(255,255,255,.7);margin-top:12px;}
 
 /* AUTORA */
@@ -208,8 +223,8 @@ footer p{font-size:10px;color:#aaa;}
 #sticky-cta{position:fixed;bottom:0;left:50%;transform:translateX(-50%) translateY(120%);width:100%;max-width:520px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:2px solid var(--border);z-index:80;transition:transform .3s cubic-bezier(.4,0,.2,1);}
 #sticky-cta a{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:var(--heading);font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.03em;color:#fff;background:var(--red);border-radius:8px;padding:15px;}
 
-/* REVEAL */
-[data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+/* REVEAL — usa will-change só durante a animação, removido depois */
+[data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease;contain:content;}
 [data-reveal].visible{opacity:1;transform:none;}
 </style>
 </head>
@@ -221,8 +236,9 @@ footer p{font-size:10px;color:#aaa;}
 
   <!-- HERO -->
   <section class="hero">
-    <video id="hero-video" muted loop playsinline preload="auto">
-      <source src="uploads/Hyperrealistic_photograph_Bra.mp4" type="video/mp4">
+    <video id="hero-video" muted loop playsinline preload="none" poster="uploads/opt/hero-poster.webp">
+      <source src="uploads/opt/hero.webm" type="video/webm">
+      <source src="uploads/opt/hero.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -269,13 +285,13 @@ footer p{font-size:10px;color:#aaa;}
       <div class="pain-item" data-reveal>
         <h3>Vício do "Visto por Último"</h3>
         <p>O coração acelera a cada notificação. Se ele está online e não responde, seu mundo desmorona.</p>
-        <img src="uploads/ChatGPT Image 29 de jun. de 2026, 17_33_07.png" alt="">
+        <img src="uploads/opt/pain1.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
       </div>
 
       <div class="pain-item" data-reveal>
         <h3>Aceitando migalhas</h3>
         <p>Você sabe que merece mais, mas aceita qualquer resto de atenção só para não ficar sozinha.</p>
-        <img src="uploads/ChatGPT Image 29 de jun. de 2026, 17_36_09.png" alt="">
+        <img src="uploads/opt/pain2.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
         <div class="wa">
           <div class="wa-header">
             <div class="wa-avatar">💁‍♀️</div>
@@ -293,7 +309,7 @@ footer p{font-size:10px;color:#aaa;}
       <div class="pain-item" data-reveal>
         <h3>O medo de ser trocada</h3>
         <p>Você se pega stalkeando o perfil dele (e das amigas dele) buscando provas de que está sendo substituída.</p>
-        <img src="uploads/ChatGPT Image 29 de jun. de 2026, 17_38_13.png" alt="">
+        <img src="uploads/opt/pain3.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
         <div class="wa">
           <div class="wa-header">
             <div class="wa-avatar">💁‍♀️</div>
@@ -311,7 +327,7 @@ footer p{font-size:10px;color:#aaa;}
       <div class="pain-item" data-reveal>
         <h3>Você sente que não faz diferença para ele</h3>
         <p>Quanto mais você faz por ele, menos ele te valoriza. Você virou a mulher que ele sabe que já ganhou.</p>
-        <img src="uploads/ChatGPT Image 29 de jun. de 2026, 17_40_33.png" alt="">
+        <img src="uploads/opt/pain4.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
         <div class="wa">
           <div class="wa-header">
             <div class="wa-avatar">💁‍♀️</div>
@@ -329,7 +345,7 @@ footer p{font-size:10px;color:#aaa;}
       <div class="pain-item" data-reveal>
         <h3>Sentir que ama demais</h3>
         <p>Você se sente culpada por ser intensa demais. Acha que o seu amor é o que afasta ele, e se odeia por não conseguir simplesmente parar.</p>
-        <img src="uploads/ChatGPT Image 29 de jun. de 2026, 17_45_48.png" alt="">
+        <img src="uploads/opt/pain5.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
         <div class="wa">
           <div class="wa-header">
             <div class="wa-avatar">💁‍♀️</div>
@@ -358,13 +374,13 @@ footer p{font-size:10px;color:#aaa;}
           <p class="step-desc">Aprenda a interromper o pânico afetivo que te faz agir por impulso e afastar o homem que você ama.</p>
         </div>
         <div class="step-img-wrap">
-          <div class="step-img-inner"><img src="uploads/Gemini_Generated_Image_pjt3klpjt3klpjt3.png" alt="Passo 1"></div>
+          <div class="step-img-inner"><img src="uploads/opt/step1.webp" alt="Passo 1" loading="lazy" decoding="async" width="400" height="218"></div>
         </div>
       </div>
 
       <div class="step-card" data-reveal>
         <div class="step-img-wrap">
-          <div class="step-img-inner left-img"><img src="uploads/ChatGPT Image 29 de jun. de 2026, 19_13_47.png" alt="Passo 2"></div>
+          <div class="step-img-inner left-img"><img src="uploads/opt/step2.webp" alt="Passo 2" loading="lazy" decoding="async" width="400" height="266"></div>
         </div>
         <div class="step-text right">
           <p class="step-label">Passo 2</p>
@@ -380,13 +396,13 @@ footer p{font-size:10px;color:#aaa;}
           <p class="step-desc">Aprenda a reagir da forma certa quando ele se afasta ou ignora suas mensagens.</p>
         </div>
         <div class="step-img-wrap">
-          <div class="step-img-inner"><img src="uploads/Gemini_Generated_Image_yp54lcyp54lcyp54.png" alt="Passo 3"></div>
+          <div class="step-img-inner"><img src="uploads/opt/step3.webp" alt="Passo 3" loading="lazy" decoding="async" width="400" height="218"></div>
         </div>
       </div>
 
       <div class="step-card" data-reveal>
         <div class="step-img-wrap">
-          <div class="step-img-inner left-img"><img src="uploads/Gemini_Generated_Image_n0etrsn0etrsn0et.png" alt="Passo 4" style="object-position:40% center;"></div>
+          <div class="step-img-inner left-img"><img src="uploads/opt/step4.webp" alt="Passo 4" loading="lazy" decoding="async" width="400" height="218" style="object-position:40% center;"></div>
         </div>
         <div class="step-text right">
           <p class="step-label">Passo 4</p>
@@ -613,52 +629,77 @@ footer p{font-size:10px;color:#aaa;}
 
 <script>
 (function(){
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('[data-reveal]');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
-  reveals.forEach((el) => io.observe(el));
-  setTimeout(() => reveals.forEach((el) => el.classList.add('visible')), 4000);
+  'use strict';
 
-  // Vídeo hero
-  const vid = document.getElementById('hero-video');
-  if (vid) {
-    const hero = vid.closest('section');
-    const play = () => vid.play().catch(() => {});
-    if (hero) {
-      hero.addEventListener('mouseenter', play);
-      hero.addEventListener('touchstart', play, { once: true, passive: true });
-    }
-    const ioVid = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting && window.scrollY > 10) play(); });
-    }, { threshold: 0.3 });
-    ioVid.observe(vid);
-    const onFirstScroll = () => { if (window.scrollY > 10) { play(); window.removeEventListener('scroll', onFirstScroll); } };
-    window.addEventListener('scroll', onFirstScroll, { passive: true });
+  // ── Reveal on scroll ──────────────────────────────────────────────
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if (reveals.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+    reveals.forEach((el) => io.observe(el));
+    // Fallback: garante visibilidade após 3.5s caso JS/IntersectionObserver travar
+    setTimeout(() => reveals.forEach((el) => el.classList.add('visible')), 3500);
   }
 
-  // Barra de progresso + sticky CTA
+  // ── Vídeo hero — poster instantâneo, vídeo carrega sob demanda ────
+  // O poster .webp (18 KB) já aparece imediatamente. O vídeo (preload="none")
+  // só baixa quando o hero entra em tela, economizando banda no first paint.
+  const vid = document.getElementById('hero-video');
+  if (vid) {
+    let loaded = false;
+    const loadAndPlay = () => {
+      if (!loaded) { loaded = true; vid.load(); }
+      vid.play().catch(() => {});
+    };
+    // Carrega o vídeo assim que o hero estiver visível (quase sempre no load)
+    const ioVid = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) { loadAndPlay(); ioVid.disconnect(); }
+    }, { threshold: 0.25 });
+    ioVid.observe(vid);
+    // Fallback: primeira interação do usuário garante o play em mobile
+    const onInteract = () => { loadAndPlay(); window.removeEventListener('scroll', onInteract, true); window.removeEventListener('touchstart', onInteract, true); };
+    window.addEventListener('scroll', onInteract, { once: true, passive: true, capture: true });
+    window.addEventListener('touchstart', onInteract, { once: true, passive: true, capture: true });
+  }
+
+  // ── Barra de progresso + Sticky CTA (throttle via rAF) ───────────
   const prog = document.getElementById('progress-bar');
   const sticky = document.getElementById('sticky-cta');
-  const onScroll = () => {
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    const p = h > 0 ? (window.scrollY / h) * 100 : 0;
-    if (prog) prog.style.width = p + '%';
-    if (sticky) sticky.style.transform = window.scrollY > 500 ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(120%)';
+  let rafPending = false;
+  const updateScroll = () => {
+    rafPending = false;
+    const scrollY = window.scrollY;
+    if (prog) {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
+    }
+    if (sticky) {
+      sticky.style.transform = scrollY > 500
+        ? 'translateX(-50%) translateY(0)'
+        : 'translateX(-50%) translateY(120%)';
+    }
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  window.addEventListener('scroll', () => {
+    if (!rafPending) { rafPending = true; requestAnimationFrame(updateScroll); }
+  }, { passive: true });
+  updateScroll();
 
-  // Countdown
+  // ── Countdown ─────────────────────────────────────────────────────
   const el = document.getElementById('countdown');
   if (el) {
     const KEY = 'fae_dl_v2';
     let deadline = parseInt(localStorage.getItem(KEY) || '0', 10);
     const now = Date.now();
-    if (!deadline || deadline < now) { deadline = now + 15 * 60 * 1000; localStorage.setItem(KEY, String(deadline)); }
+    if (!deadline || deadline < now) {
+      deadline = now + 15 * 60 * 1000;
+      localStorage.setItem(KEY, String(deadline));
+    }
     const update = () => {
       const diff = Math.max(0, deadline - Date.now());
       const m = Math.floor(diff / 60000);
@@ -669,13 +710,16 @@ footer p{font-size:10px;color:#aaa;}
     setInterval(update, 1000);
   }
 
-  // CTA smooth scroll
-  document.querySelectorAll('a[href="#oferta"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const t = document.getElementById('oferta');
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  // ── CTA smooth scroll ─────────────────────────────────────────────
+  const oferta = document.getElementById('oferta');
+  if (oferta) {
+    document.querySelectorAll('a[href="#oferta"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        oferta.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
-  });
+  }
 })();
 </script>
 </body>
