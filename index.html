@@ -183,20 +183,21 @@ section{padding:44px 22px;background:#ffffff;}
 .guarantee-card h2{font-family:var(--heading);font-weight:800;font-size:22px;color:var(--text);margin-bottom:12px;}
 .guarantee-card p{font-size:16px;line-height:1.65;color:var(--text2);}
 
-/* 2 CAMINHOS */
+/* 2 CAMINHOS — cards saturados, alto contraste */
 .paths-section{background:#ffffff;}
-.paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.path-card{border-radius:12px;padding:16px;}
-.path-card.bad{background:#fff8f8;border:1px solid rgba(139,0,0,.15);}
-.path-card.good{background:#f0fff4;border:1px solid rgba(22,163,74,.2);}
-.path-title{font-family:var(--heading);font-weight:800;font-size:15px;text-align:center;margin-bottom:14px;}
-.path-title.red{color:var(--red);}
-.path-title.green{color:var(--green);}
-.path-items{display:flex;flex-direction:column;gap:10px;}
-.path-item{display:flex;gap:6px;align-items:flex-start;}
-.path-item span{font-size:14px;}
-.path-item p{font-size:14px;line-height:1.45;color:var(--text2);}
-.path-item.good-item p{color:var(--text);}
+.paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.path-card{border-radius:16px;padding:24px 18px;}
+.path-card.bad{background:#D11515;box-shadow:0 8px 24px rgba(209,21,21,.3);}
+.path-card.good{background:#15A34A;box-shadow:0 8px 24px rgba(21,163,74,.3);}
+.path-title{font-family:var(--heading);font-weight:800;font-size:19px;text-transform:uppercase;letter-spacing:.03em;text-align:center;margin-bottom:18px;color:#fff;}
+.path-title.red,.path-title.green{color:#fff;}
+.path-items{display:flex;flex-direction:column;gap:14px;}
+.path-item{display:flex;gap:9px;align-items:flex-start;}
+.path-ic{flex:0 0 22px;width:22px;height:22px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;line-height:1;margin-top:1px;}
+.bad-ic{color:#D11515;}
+.good-ic{color:#15A34A;}
+.path-item p{font-size:15px;line-height:1.5;font-weight:600;color:#fff;}
+.path-item.good-item p{color:#fff;}
 .paths-cta{margin-top:20px;font-size:16px;line-height:1.65;color:var(--text2);text-align:center;}
 
 /* URGÊNCIA */
@@ -642,19 +643,19 @@ footer p{font-size:10px;color:#aaa;}
       <div class="path-card bad" data-reveal>
         <p class="path-title red">Caminho 1</p>
         <div class="path-items">
-          <div class="path-item"><span>❌</span><p>Entrar em pânico toda vez que ele se afastar</p></div>
-          <div class="path-item"><span>❌</span><p>Mandar mensagens por impulso e se arrepender</p></div>
-          <div class="path-item"><span>❌</span><p>Viver com medo de ser abandonada</p></div>
-          <div class="path-item"><span>❌</span><p>Nunca se sentir suficiente</p></div>
+          <div class="path-item"><span class="path-ic bad-ic">✕</span><p>Entrar em pânico toda vez que ele se afastar</p></div>
+          <div class="path-item"><span class="path-ic bad-ic">✕</span><p>Mandar mensagens por impulso e se arrepender</p></div>
+          <div class="path-item"><span class="path-ic bad-ic">✕</span><p>Viver com medo de ser abandonada</p></div>
+          <div class="path-item"><span class="path-ic bad-ic">✕</span><p>Nunca se sentir suficiente</p></div>
         </div>
       </div>
       <div class="path-card good" data-reveal>
         <p class="path-title green">Caminho 2</p>
         <div class="path-items">
-          <div class="path-item good-item"><span>✅</span><p>Saber o que fazer quando a ansiedade aparece</p></div>
-          <div class="path-item good-item"><span>✅</span><p>Interromper crises em poucos minutos</p></div>
-          <div class="path-item good-item"><span>✅</span><p>Parar de agir por impulso e preservar seu valor</p></div>
-          <div class="path-item good-item"><span>✅</span><p>Voltar a sentir paz e segurança</p></div>
+          <div class="path-item good-item"><span class="path-ic good-ic">✓</span><p>Saber o que fazer quando a ansiedade aparece</p></div>
+          <div class="path-item good-item"><span class="path-ic good-ic">✓</span><p>Interromper crises em poucos minutos</p></div>
+          <div class="path-item good-item"><span class="path-ic good-ic">✓</span><p>Parar de agir por impulso e preservar seu valor</p></div>
+          <div class="path-item good-item"><span class="path-ic good-ic">✓</span><p>Voltar a sentir paz e segurança</p></div>
         </div>
       </div>
     </div>
