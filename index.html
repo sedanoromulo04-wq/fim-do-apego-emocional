@@ -41,6 +41,12 @@ h1,h2,h3,.sec-title,.step-title,.bonus-name,.access-title,.step-label,.step-desc
 #progress-bar-wrap{position:fixed;top:0;left:0;right:0;height:3px;background:rgba(0,0,0,.08);z-index:90;}
 #progress-bar{height:100%;width:0%;background:var(--red);transition:width .15s linear;}
 
+/* TOPBAR / LOGO */
+.topbar{background:#111;display:flex;align-items:center;justify-content:center;gap:11px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08);}
+.topbar svg{width:26px;height:26px;flex:0 0 26px;}
+.topbar .logo-text{font-family:var(--heading);font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:.04em;font-size:18px;color:#fff;line-height:1;}
+.topbar .logo-text b{color:#ff4444;font-weight:700;}
+
 /* HERO */
 .hero{position:relative;overflow:hidden;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;background:#111;contain:layout;}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;will-change:auto;}
@@ -103,7 +109,7 @@ section{padding:44px 22px;background:#ffffff;}
 .step-text.right{border-radius:0 16px 16px 0;}
 .step-label{font-family:var(--heading);font-weight:600;font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;}
 .step-title{font-family:var(--heading);font-weight:700;font-size:20px;color:#fff;font-style:italic;text-transform:uppercase;line-height:1.2;margin-bottom:12px;}
-.step-desc{font-size:14px;color:rgba(255,255,255,.88);line-height:1.6;}
+.step-desc{font-size:15px;color:rgba(255,255,255,.88);line-height:1.6;}
 .step-img-wrap{width:140px;flex:0 0 140px;position:relative;}
 .step-img-inner{position:absolute;top:-14px;right:-14px;bottom:-14px;left:0;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.18);}
 .step-img-inner.left-img{top:-14px;left:-14px;bottom:-14px;right:0;}
@@ -114,15 +120,16 @@ section{padding:44px 22px;background:#ffffff;}
 /* content-visibility para seções abaixo da dobra (skip rendering até scroll) */
 .bonus-section,.science-section,.for-you-section,.recap-section,.guarantee-section,.paths-section,.author-section,.access-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
 
-/* BÔNUS */
+/* BÔNUS — mockup + card com balão de preço (estilo referência) */
 .bonus-section{background:#ffffff;}
-.bonus-list{display:flex;flex-direction:column;gap:14px;}
-.bonus-card{background:#ffffff;border-radius:12px;padding:0;border:none;}
-.bonus-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.bonus-icon{background:var(--red);border-radius:8px;width:36px;height:36px;flex:0 0 36px;display:flex;align-items:center;justify-content:center;font-size:18px;}
-.bonus-name{font-family:var(--heading);font-weight:800;font-size:18px;color:var(--text);}
-.bonus-price{font-family:var(--heading);font-weight:700;font-size:14px;color:var(--red);text-decoration:line-through;}
-.bonus-text{font-size:16px;line-height:1.6;color:var(--text2);}
+.bonus-list{display:flex;flex-direction:column;gap:28px;}
+.bonus-row{display:flex;flex-direction:column;align-items:center;gap:0;}
+.bonus-mockup{width:100%;max-width:210px;}
+.bonus-mockup img{width:100%;height:auto;display:block;}
+.bonus-info{position:relative;background:#f4f4f4;border-radius:16px;padding:34px 22px 24px;text-align:center;width:100%;margin-top:-18px;}
+.bonus-tag{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-family:var(--heading);font-weight:800;font-size:14px;padding:6px 16px;border-radius:999px;box-shadow:0 4px 12px rgba(204,0,0,.3);}
+.bonus-name{font-family:var(--heading);font-weight:800;font-size:21px;color:var(--text);margin-bottom:10px;line-height:1.2;}
+.bonus-text{font-size:16px;line-height:1.65;color:var(--text2);}
 
 /* CIÊNCIA — vazia no momento; não ocupa espaço */
 .science-section{background:#ffffff;display:none;}
@@ -249,31 +256,35 @@ footer p{font-size:10px;color:#aaa;}
   .badge-count{margin-top:40px;}
   .badge-count p{font-size:24px;}
 
-  /* DOR — 2 colunas */
-  .pain-section .sec-title{font-size:34px;}
-  .pain-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;}
-  .pain-item{padding:28px 0;}
-  .pain-item:nth-last-child(-n+2):nth-child(odd){border-bottom:none;}
-  .pain-item h3{font-size:24px;}
-  .pain-item p{font-size:18px;}
+  /* DOR — coluna única, imagens full-width de alto impacto */
+  .pain-section{padding-left:0;padding-right:0;}
+  .pain-section .sec-title{font-size:38px;padding:0 56px;}
+  .pain-list{display:flex;flex-direction:column;gap:0;max-width:none;}
+  .pain-item{padding:0 0 56px;border-bottom:none;}
+  .pain-item h3{font-size:32px;text-align:center;padding:0 56px;margin-bottom:14px;}
+  .pain-item p{font-size:20px;text-align:center;max-width:760px;margin:0 auto 28px;padding:0 56px;line-height:1.6;}
+  .pain-item img{margin-top:0;width:100%;max-width:1100px;margin-left:auto;margin-right:auto;border-radius:0;max-height:560px;object-fit:cover;}
 
   /* 4 PASSOS — cards mais largos e imagem maior */
   .steps-section .sec-title{font-size:34px;}
   .steps-list{max-width:900px;margin:0 auto;gap:44px;}
-  .step-card{min-height:240px;}
+  .step-card{min-height:260px;}
   .step-img-wrap{flex:0 0 300px;width:300px;}
   .step-title{font-size:26px;}
-  .step-desc{font-size:16px;}
+  .step-desc{font-size:18px;line-height:1.65;}
   .step-text{padding:36px 40px;}
   .step-note{max-width:760px;margin:44px auto 0;}
   .step-note p{font-size:19px;}
 
-  /* BÔNUS — mockup ao lado dos textos */
-  .bonus-section .sec-title{font-size:34px;}
-  .bonus-list{max-width:820px;margin:0 auto;}
-  .bonus-card > img{max-width:820px;margin:0 auto 28px;}
-  .bonus-name{font-size:21px;}
-  .bonus-text{font-size:17px;}
+  /* BÔNUS — mockup à esquerda, card à direita (estilo referência) */
+  .bonus-section .sec-title{font-size:38px;}
+  .bonus-list{max-width:980px;margin:0 auto;gap:36px;}
+  .bonus-row{flex-direction:row;align-items:center;gap:0;}
+  .bonus-mockup{flex:0 0 360px;max-width:360px;z-index:2;}
+  .bonus-info{text-align:left;padding:40px 44px 40px 80px;margin-top:0;margin-left:-56px;}
+  .bonus-tag{left:auto;right:40px;transform:none;top:28px;font-size:16px;padding:7px 18px;}
+  .bonus-name{font-size:26px;padding-right:90px;}
+  .bonus-text{font-size:18px;}
 
   /* PARA QUEM */
   .for-you-section .sec-title{font-size:34px;}
@@ -337,6 +348,17 @@ footer p{font-size:10px;color:#aaa;}
 
 <div class="wrap">
 
+  <!-- TOPBAR / LOGO -->
+  <header class="topbar">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M9.5 7.5L7 5a3.5 3.5 0 00-5 5l2.5 2.5" stroke="#ff4444" stroke-width="2" stroke-linecap="round"/>
+      <path d="M14.5 16.5L17 19a3.5 3.5 0 005-5l-2.5-2.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <path d="M10 14l4-4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <path d="M13.2 4.2l1-1M16.5 5.5l1.2-.4M4.8 19.8l-1 1M7.5 18.5l-1.2.4" stroke="#ff4444" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-text">Fim do <b>Apego Emocional</b></span>
+  </header>
+
   <!-- HERO -->
   <section class="hero">
     <video id="hero-video" muted loop playsinline preload="none" poster="uploads/opt/hero-poster.webp">
@@ -360,10 +382,7 @@ footer p{font-size:10px;color:#aaa;}
       <div data-reveal><img src="uploads/opt/ps27.webp" alt="Depoimento" loading="lazy" decoding="async" style="width:100%;border-radius:12px;display:block;"></div>
       <div data-reveal><img src="uploads/opt/ps26.webp" alt="Depoimento" loading="lazy" decoding="async" style="width:100%;border-radius:12px;display:block;"></div>
       <div data-reveal><img src="uploads/opt/ps32.webp" alt="Depoimento" loading="lazy" decoding="async" style="width:100%;border-radius:12px;display:block;"></div>
-      <div data-reveal><img src="uploads/opt/video-testimonials.webp" alt="Mariane, Maricleide e Carolina — depoimentos em vídeo" loading="lazy" decoding="async" style="width:100%;border-radius:12px;display:block;"></div>
-    </div>
-    <div class="badge-count" data-reveal>
-      <p>+8.342 mulheres já retomaram o controle emocional</p>
+      <div data-reveal><img src="uploads/opt/video-testimonials.webp" alt="Mariane, Maricleide e Carolina, depoimentos em vídeo" loading="lazy" decoding="async" style="width:100%;border-radius:12px;display:block;"></div>
     </div>
   </section>
 
@@ -414,7 +433,7 @@ footer p{font-size:10px;color:#aaa;}
         <div class="step-text left">
           <p class="step-label">Passo 1</p>
           <h3 class="step-title">Desativar o Modo Desespero</h3>
-          <p class="step-desc">Aprenda a interromper o pânico afetivo que te faz agir por impulso e afastar o homem que você ama.</p>
+          <p class="step-desc">Você aprende a interromper o pânico afetivo na hora em que ele aparece, aquele aperto no peito que te faz mandar a mensagem que você ia se arrepender, ligar de novo, cobrar uma resposta. Em poucos minutos, antes de agir por impulso, você recupera o domínio sobre a própria reação. É esse impulso, e não o sentimento, que afasta o homem que você ama.</p>
         </div>
         <div class="step-img-wrap">
           <div class="step-img-inner"><img src="uploads/opt/step1.webp" alt="Passo 1" loading="lazy" decoding="async" width="400" height="218"></div>
@@ -436,7 +455,7 @@ footer p{font-size:10px;color:#aaa;}
         <div class="step-text left">
           <p class="step-label">Passo 3</p>
           <h3 class="step-title">Faça Ele Sentir Sua Ausência</h3>
-          <p class="step-desc">Aprenda a reagir da forma certa quando ele se afasta ou ignora suas mensagens.</p>
+          <p class="step-desc">Quando ele esfria, demora a responder ou some por horas, você vai saber exatamente como reagir. Nada de perseguir, cobrar ou fingir indiferença forçada. Você ocupa o seu espaço com naturalidade, volta a viver a sua vida, e é justamente aí que a falta começa a ser dele. Quem para de correr atrás passa a ser procurado.</p>
         </div>
         <div class="step-img-wrap">
           <div class="step-img-inner"><img src="uploads/opt/step3.webp" alt="Passo 3" loading="lazy" decoding="async" width="400" height="218"></div>
@@ -462,25 +481,36 @@ footer p{font-size:10px;color:#aaa;}
 
   <!-- BÔNUS -->
   <section class="bonus-section">
-    <h2 class="sec-title">Além disso, você vai receber de presente:</h2>
+    <h2 class="sec-title">Além disso, você vai <strong>receber de presente</strong>:</h2>
     <div class="bonus-list">
-      <div class="bonus-card" data-reveal>
-        <img src="uploads/opt/bonus-3livros.webp" alt="Bônus 1 — Guia SOS Emocional, Bônus 2 — Código Mensagens Irresistíveis, Bônus 3 — Manual Controle Absoluto" loading="lazy" decoding="async" style="width:100%;border-radius:8px;display:block;margin-bottom:24px;">
-        <div style="display:flex;flex-direction:column;gap:22px;">
-          <div>
-            <p class="bonus-name">Bônus 1 — Guia SOS Emocional <span class="bonus-price" style="margin-left:6px;">R$ 97</span></p>
-            <p class="bonus-text" style="margin-top:6px;">Aprenda exatamente o que fazer quando o desespero bater, recupere o controle e evite agir por impulso.</p>
-          </div>
-          <div>
-            <p class="bonus-name">Bônus 2 — Código das Mensagens Irresistíveis <span class="bonus-price" style="margin-left:6px;">R$ 67</span></p>
-            <p class="bonus-text" style="margin-top:6px;">Descubra o que dizer (e quando dizer) para despertar curiosidade, transmitir valor e evitar mensagens que diminuem seu interesse.</p>
-          </div>
-          <div>
-            <p class="bonus-name">Bônus 3 — Manual do Controle Absoluto <span class="bonus-price" style="margin-left:6px;">R$ 47</span></p>
-            <p class="bonus-text" style="margin-top:6px;">Nunca mais deixe uma recaída destruir o progresso que você conquistou. Aprenda a manter o controle nos momentos mais difíceis.</p>
-          </div>
+
+      <div class="bonus-row" data-reveal>
+        <div class="bonus-mockup"><img src="uploads/opt/bonus-1.webp" alt="Guia SOS Emocional do Protocolo 48H" loading="lazy" decoding="async"></div>
+        <div class="bonus-info">
+          <span class="bonus-tag">R$ 97</span>
+          <h3 class="bonus-name">Guia SOS Emocional</h3>
+          <p class="bonus-text">Quando o desespero bater, você abre o guia e sabe na hora o que fazer. Um passo a passo rápido para recuperar o controle e não agir por impulso, mesmo no pior momento da crise.</p>
         </div>
       </div>
+
+      <div class="bonus-row" data-reveal>
+        <div class="bonus-mockup"><img src="uploads/opt/bonus-2.webp" alt="Código das Mensagens Irresistíveis do Protocolo 48H" loading="lazy" decoding="async"></div>
+        <div class="bonus-info">
+          <span class="bonus-tag">R$ 67</span>
+          <h3 class="bonus-name">Código das Mensagens Irresistíveis</h3>
+          <p class="bonus-text">O que dizer e quando dizer para despertar curiosidade e transmitir valor. Você para de mandar mensagens que diminuem o seu interesse e passa a escrever de um jeito que faz ele querer responder.</p>
+        </div>
+      </div>
+
+      <div class="bonus-row" data-reveal>
+        <div class="bonus-mockup"><img src="uploads/opt/bonus-3.webp" alt="Manual do Controle Absoluto do Protocolo 48H" loading="lazy" decoding="async"></div>
+        <div class="bonus-info">
+          <span class="bonus-tag">R$ 47</span>
+          <h3 class="bonus-name">Manual do Controle Absoluto</h3>
+          <p class="bonus-text">Nunca mais deixe uma recaída destruir o progresso que você conquistou. Aqui você aprende a manter o controle nos dias difíceis, quando a vontade de voltar ao velho padrão aparece.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -491,7 +521,7 @@ footer p{font-size:10px;color:#aaa;}
 
   <!-- PARA QUEM -->
   <section class="for-you-section">
-    <h2 class="sec-title">O Fim do Apego Emocional é para você que:</h2>
+    <h2 class="sec-title">Este Protocolo É Para Você Que...</h2>
     <div class="for-you-list">
       <div class="for-you-item" data-reveal>
         <span>✅</span>
@@ -539,9 +569,40 @@ footer p{font-size:10px;color:#aaa;}
     </div>
   </section>
 
+  <!-- COMO FUNCIONA -->
+  <section class="access-section" style="padding:44px 22px;">
+    <h2 class="sec-title" style="margin-bottom:28px;">Compre agora e receba seu acesso no e-mail imediatamente!</h2>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+
+      <div style="background:var(--bg);border-radius:12px;padding:20px;border:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;" data-reveal>
+        <div style="font-size:28px;flex:0 0 auto;">✉️</div>
+        <div>
+          <p style="font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text);margin-bottom:6px;">Acesse seu e-mail</p>
+          <p style="font-size:14px;color:var(--text2);line-height:1.6;">Assim que finalizar a compra, você recebe o acesso direto no seu e-mail.</p>
+        </div>
+      </div>
+
+      <div style="background:var(--bg);border-radius:12px;padding:20px;border:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;" data-reveal>
+        <div style="font-size:28px;flex:0 0 auto;">🛡️</div>
+        <div>
+          <p style="font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text);margin-bottom:6px;">Acesso ao produto</p>
+          <p style="font-size:14px;color:var(--text2);line-height:1.6;">O protocolo e todos os bônus liberados na hora, sem espera.</p>
+        </div>
+      </div>
+
+      <div style="background:var(--bg);border-radius:12px;padding:20px;border:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;" data-reveal>
+        <div style="font-size:28px;flex:0 0 auto;">✅</div>
+        <div>
+          <p style="font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text);margin-bottom:6px;">Tudo pronto!</p>
+          <p style="font-size:14px;color:var(--text2);line-height:1.6;">Você já pode começar a aplicar o primeiro passo ainda hoje.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- OFERTA -->
   <section id="oferta" class="offer-section">
-    <h2 class="sec-title">Hoje você vai ter acesso a tudo isso por apenas:</h2>
     <div class="offer-box" data-reveal>
       <img class="offer-mockup" src="uploads/opt/produto-mockup.webp" alt="Protocolo 48H para parar o Apego Emocional + 3 bônus: Guia SOS Emocional, Código das Mensagens Irresistíveis e Manual do Controle Absoluto" loading="lazy" decoding="async" width="1000" height="667">
       <div class="offer-countdown">
@@ -616,41 +677,9 @@ footer p{font-size:10px;color:#aaa;}
     </div>
   </section>
 
-  <!-- COMO FUNCIONA -->
-  <section class="access-section" style="padding:44px 22px;">
-    <h2 class="sec-title" style="margin-bottom:28px;">Compre agora e receba seu acesso no e-mail imediatamente!</h2>
-    <div style="display:flex;flex-direction:column;gap:14px;">
-
-      <div style="background:var(--bg);border-radius:12px;padding:20px;border:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;" data-reveal>
-        <div style="font-size:28px;flex:0 0 auto;">✉️</div>
-        <div>
-          <p style="font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text);margin-bottom:6px;">Acesse seu e-mail</p>
-          <p style="font-size:14px;color:var(--text2);line-height:1.6;">Assim que finalizar a compra, você vai receber seu acesso no email.</p>
-        </div>
-      </div>
-
-      <div style="background:var(--bg);border-radius:12px;padding:20px;border:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;" data-reveal>
-        <div style="font-size:28px;flex:0 0 auto;">🛡️</div>
-        <div>
-          <p style="font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text);margin-bottom:6px;">Acesso ao produto</p>
-          <p style="font-size:14px;color:var(--text2);line-height:1.6;">Você vai receber todos os entregáveis imediatamente.</p>
-        </div>
-      </div>
-
-      <div style="background:var(--bg);border-radius:12px;padding:20px;border:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;" data-reveal>
-        <div style="font-size:28px;flex:0 0 auto;">✅</div>
-        <div>
-          <p style="font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text);margin-bottom:6px;">Tudo pronto!</p>
-          <p style="font-size:14px;color:var(--text2);line-height:1.6;">Agora é só copiar e ter seu primeiro low ticket pronto ainda hoje.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
   <!-- CTA FINAL -->
   <section class="offer-section" style="border-top:1px solid var(--border);">
-    <h2 class="sec-title">Hoje você vai ter acesso a tudo isso por apenas:</h2>
     <div class="offer-box" data-reveal>
       <img class="offer-mockup" src="uploads/opt/produto-mockup.webp" alt="Protocolo 48H para parar o Apego Emocional + 3 bônus: Guia SOS Emocional, Código das Mensagens Irresistíveis e Manual do Controle Absoluto" loading="lazy" decoding="async" width="1000" height="667">
       <div class="offer-price">9x de R$ 8,40</div>
