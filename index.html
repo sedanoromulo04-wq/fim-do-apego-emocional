@@ -117,7 +117,7 @@ section{padding:44px 22px;background:#ffffff;}
 .step-note p{font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text);text-align:center;}
 
 /* content-visibility para seções abaixo da dobra (skip rendering até scroll) */
-.bonus-section,.science-section,.for-you-section,.recap-section,.guarantee-section,.paths-section,.author-section,.access-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
+.bonus-section,.science-section,.recap-section,.guarantee-section,.paths-section,.author-section,.access-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
 
 /* BÔNUS — mockup + card com balão de preço (estilo referência) */
 .bonus-section{background:#ffffff;}
@@ -137,16 +137,20 @@ section{padding:44px 22px;background:#ffffff;}
 .science-card p{font-size:13px;line-height:1.65;color:var(--text2);}
 .science-card.quote{border-left:4px solid var(--red);}
 
-/* PARA QUEM */
-.for-you-section{background:#ffffff;}
+/* PARA QUEM — foto de fundo + overlay, conteúdo sobreposto */
+.for-you-section{position:relative;background:#111;overflow:hidden;}
+.for-you-section::before{content:"";position:absolute;inset:0;background:url('uploads/opt/para-quem-bg.webp') center/cover no-repeat;z-index:0;}
+.for-you-section::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,.78) 0%,rgba(10,10,12,.72) 55%,rgba(10,10,12,.82) 100%);z-index:1;}
+.for-you-section > *{position:relative;z-index:2;}
+.for-you-section .sec-title{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5);}
 .for-you-list{display:flex;flex-direction:column;gap:0;}
-.for-you-item{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--border);}
+.for-you-item{display:flex;gap:14px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.15);}
 .for-you-item span{font-size:22px;flex:0 0 28px;}
-.for-you-item h3{font-family:var(--heading);font-weight:700;font-size:17px;color:var(--text);margin-bottom:4px;line-height:1.3;}
-.for-you-item p{font-size:15px;line-height:1.55;color:var(--text2);}
-.not-for{margin-top:24px;background:#fff8f8;border-radius:12px;padding:20px;border:1px solid rgba(139,0,0,.2);}
-.not-for h3{font-family:var(--heading);font-weight:800;font-size:16px;color:var(--red);margin-bottom:10px;}
-.not-for p{font-size:15px;line-height:1.55;color:var(--text2);}
+.for-you-item h3{font-family:var(--heading);font-weight:700;font-size:17px;color:#fff;margin-bottom:4px;line-height:1.3;text-shadow:0 1px 6px rgba(0,0,0,.5);}
+.for-you-item p{font-size:15px;line-height:1.55;color:rgba(255,255,255,.85);text-shadow:0 1px 6px rgba(0,0,0,.5);}
+.not-for{margin-top:24px;background:rgba(209,21,21,.92);border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,.18);}
+.not-for h3{font-family:var(--heading);font-weight:800;font-size:16px;color:#fff;margin-bottom:10px;}
+.not-for p{font-size:15px;line-height:1.55;color:rgba(255,255,255,.95);}
 
 /* RECAP */
 .recap-section{background:#ffffff;}
