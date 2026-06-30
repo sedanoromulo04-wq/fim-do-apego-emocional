@@ -102,17 +102,16 @@ section{padding:44px 22px;background:#ffffff;}
 /* 4 PASSOS */
 .steps-section{background:#ffffff;}
 .steps-section .sec-title{font-size:25px;text-transform:uppercase;font-style:italic;margin-bottom:36px;}
-.steps-list{display:flex;flex-direction:column;gap:32px;}
-.step-card{position:relative;display:flex;align-items:stretch;border-radius:16px;min-height:190px;overflow:visible;}
-.step-text{flex:1;background:var(--red);padding:24px 22px;display:flex;flex-direction:column;justify-content:center;}
-.step-text.left{border-radius:16px 0 0 16px;}
-.step-text.right{border-radius:0 16px 16px 0;}
+.steps-list{display:flex;flex-direction:column;gap:24px;}
+/* Mobile: imagem no topo (largura total), texto embaixo. Sem corte. */
+.step-card{position:relative;display:flex;flex-direction:column;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.1);}
+.step-text{background:var(--red);padding:24px 22px;display:flex;flex-direction:column;justify-content:center;order:2;}
+.step-text.left,.step-text.right{border-radius:0;}
 .step-label{font-family:var(--heading);font-weight:600;font-size:12px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;}
-.step-title{font-family:var(--heading);font-weight:700;font-size:20px;color:#fff;font-style:italic;text-transform:uppercase;line-height:1.2;margin-bottom:12px;}
+.step-title{font-family:var(--heading);font-weight:700;font-size:21px;color:#fff;font-style:italic;text-transform:uppercase;line-height:1.2;margin-bottom:12px;}
 .step-desc{font-size:15px;color:rgba(255,255,255,.88);line-height:1.6;}
-.step-img-wrap{width:140px;flex:0 0 140px;position:relative;}
-.step-img-inner{position:absolute;top:-14px;right:-14px;bottom:-14px;left:0;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.18);}
-.step-img-inner.left-img{top:-14px;left:-14px;bottom:-14px;right:0;}
+.step-img-wrap{width:100%;height:220px;position:relative;order:1;}
+.step-img-inner{position:absolute;inset:0;overflow:hidden;}
 .step-img-inner img{width:100%;height:100%;object-fit:cover;display:block;}
 .step-note{margin-top:32px;background:#fafafa;border-radius:12px;padding:20px;border-left:4px solid var(--red);}
 .step-note p{font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text);text-align:center;}
@@ -266,10 +265,16 @@ footer p{font-size:10px;color:#aaa;}
   .pain-item img{margin-top:0;width:100%;max-width:1100px;margin-left:auto;margin-right:auto;border-radius:0;max-height:560px;object-fit:cover;}
 
   /* 4 PASSOS — cards mais largos e imagem maior */
+  /* 4 PASSOS desktop: volta ao layout horizontal alternado */
   .steps-section .sec-title{font-size:34px;}
   .steps-list{max-width:900px;margin:0 auto;gap:44px;}
-  .step-card{min-height:260px;}
-  .step-img-wrap{flex:0 0 300px;width:300px;}
+  .step-card{flex-direction:row;align-items:stretch;min-height:260px;}
+  .step-text{flex:1;order:0;}
+  .step-img-wrap{flex:0 0 320px;width:320px;height:auto;order:0;}
+  .step-text.left{order:1;}      /* texto à esquerda => imagem fica à direita */
+  .step-text.right{order:2;}     /* texto à direita => imagem (sem classe) fica à esquerda */
+  .step-card:has(.step-text.left) .step-img-wrap{order:2;}
+  .step-card:has(.step-text.right) .step-img-wrap{order:1;}
   .step-title{font-size:26px;}
   .step-desc{font-size:18px;line-height:1.65;}
   .step-text{padding:36px 40px;}
