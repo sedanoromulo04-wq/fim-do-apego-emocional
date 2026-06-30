@@ -117,7 +117,7 @@ section{padding:44px 22px;background:#ffffff;}
 .step-note p{font-family:var(--heading);font-weight:700;font-size:16px;color:var(--text);text-align:center;}
 
 /* content-visibility para seções abaixo da dobra (skip rendering até scroll) */
-.bonus-section,.science-section,.recap-section,.guarantee-section,.paths-section,.author-section,.access-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
+.bonus-section,.recap-section,.guarantee-section,.paths-section,.author-section,.access-section{content-visibility:auto;contain-intrinsic-size:0 400px;}
 
 /* BÔNUS — mockup + card com balão de preço (estilo referência) */
 .bonus-section{background:#ffffff;}
@@ -129,13 +129,6 @@ section{padding:44px 22px;background:#ffffff;}
 .bonus-tag{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-family:var(--heading);font-weight:800;font-size:14px;padding:6px 16px;border-radius:999px;box-shadow:0 4px 12px rgba(204,0,0,.3);}
 .bonus-name{font-family:var(--heading);font-weight:800;font-size:21px;color:var(--text);margin-bottom:10px;line-height:1.2;}
 .bonus-text{font-size:16px;line-height:1.65;color:var(--text2);}
-
-/* CIÊNCIA — vazia no momento; não ocupa espaço */
-.science-section{background:#ffffff;display:none;}
-.science-list{display:flex;flex-direction:column;gap:14px;}
-.science-card{background:var(--bg);border-radius:12px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.07);}
-.science-card p{font-size:13px;line-height:1.65;color:var(--text2);}
-.science-card.quote{border-left:4px solid var(--red);}
 
 /* PARA QUEM — foto de fundo + overlay, conteúdo sobreposto */
 .for-you-section{position:relative;background:#111;overflow:hidden;}
@@ -407,31 +400,31 @@ footer p{font-size:10px;color:#aaa;}
       <div class="pain-item" data-reveal>
         <h3>Vício do "Visto por Último"</h3>
         <p>O coração acelera a cada notificação. Se ele está online e não responde, seu mundo desmorona.</p>
-        <img src="uploads/opt/pain1.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
+        <img src="uploads/opt/pain1.webp" alt="Mulher ansiosa olhando o celular esperando ele responder" loading="lazy" decoding="async" width="960" height="640">
       </div>
 
       <div class="pain-item" data-reveal>
         <h3>Aceitando migalhas</h3>
         <p>Você sabe que merece mais, mas aceita qualquer resto de atenção só para não ficar sozinha.</p>
-        <img src="uploads/opt/pain2.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
+        <img src="uploads/opt/pain2.webp" alt="Mulher aceitando migalhas de atenção para não ficar sozinha" loading="lazy" decoding="async" width="960" height="640">
       </div>
 
       <div class="pain-item" data-reveal>
         <h3>O medo de ser trocada</h3>
         <p>Você se pega stalkeando o perfil dele (e das amigas dele) buscando provas de que está sendo substituída.</p>
-        <img src="uploads/opt/pain3.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
+        <img src="uploads/opt/pain3.webp" alt="Mulher com medo de ser trocada checando o perfil dele" loading="lazy" decoding="async" width="960" height="640">
       </div>
 
       <div class="pain-item" data-reveal>
         <h3>Você sente que não faz diferença para ele</h3>
         <p>Quanto mais você faz por ele, menos ele te valoriza. Você virou a mulher que ele sabe que já ganhou.</p>
-        <img src="uploads/opt/pain4.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
+        <img src="uploads/opt/pain4.webp" alt="Mulher sentindo que não faz diferença para ele" loading="lazy" decoding="async" width="960" height="640">
       </div>
 
       <div class="pain-item" data-reveal>
         <h3>Sentir que ama demais</h3>
         <p>Você se sente culpada por ser intensa demais. Acha que o seu amor é o que afasta ele, e se odeia por não conseguir simplesmente parar.</p>
-        <img src="uploads/opt/pain5.webp" alt="" loading="lazy" decoding="async" width="960" height="640">
+        <img src="uploads/opt/pain5.webp" alt="Mulher se sentindo culpada por amar demais" loading="lazy" decoding="async" width="960" height="640">
       </div>
 
     </div>
@@ -527,11 +520,6 @@ footer p{font-size:10px;color:#aaa;}
     </div>
   </section>
 
-  <!-- CIÊNCIA -->
-  <section class="science-section">
-    <div class="science-list"></div>
-  </section>
-
   <!-- PARA QUEM -->
   <section class="for-you-section">
     <h2 class="sec-title">Este Protocolo É Para Você Que...</h2>
@@ -560,6 +548,22 @@ footer p{font-size:10px;color:#aaa;}
     <div class="not-for" data-reveal>
       <h3>⚠️ NÃO é para você se:</h3>
       <p>Você procura uma forma de controlar outra pessoa, em vez de recuperar o controle sobre si mesma.</p>
+    </div>
+  </section>
+
+  <!-- AUTORA -->
+  <section class="author-section">
+    <h2 class="sec-title">Quem é Lucimar Freire</h2>
+    <div class="author-inner" data-reveal>
+      <img class="author-photo-full" src="uploads/opt/autora-lu-full.webp" alt="Lucimar Freire, terapeuta emocional" loading="lazy" decoding="async" width="760" height="1351">
+      <div>
+        <p class="author-name">Lucimar Freire</p>
+        <p class="author-role">Terapeuta Emocional · 10 anos de prática clínica</p>
+      </div>
+      <div class="author-bio">
+        <p>Lucimar Freire é terapeuta emocional há 10 anos. Cresceu em uma família emocionalmente instável. A ansiedade a consumia. O medo de abandono guiava as suas decisões. Aos 20 anos, suas crises eram tão intensas que ela acreditava que nunca mais teria paz.</p>
+        <p>Foi quando ela mergulhou no estudo do sistema emocional, dos padrões de apego e das técnicas de regulação mais modernas. Transformou sua dor em método. E hoje, já ajudou <strong style="color:var(--text);">milhares de mulheres</strong> a retomarem o controle, mesmo nos piores momentos.</p>
+      </div>
     </div>
   </section>
 
@@ -597,7 +601,7 @@ footer p{font-size:10px;color:#aaa;}
       <div class="offer-price">9x de R$ 8,40</div>
       <div class="offer-price-sub">ou R$ 67 à vista</div>
       <p class="offer-price-note">Menos que 1 mês de Netflix</p>
-      <a href="#" class="cta-btn" id="cta-main">QUERO TER CONTROLE EMOCIONAL</a>
+      <a href="https://pay.cakto.com.br/35ny4qf_950049" target="_blank" rel="noopener" class="cta-btn" id="cta-main">QUERO TER CONTROLE EMOCIONAL</a>
       <p class="offer-trust">🔒 Pagamento 100% seguro · ⚡ Acesso imediato</p>
     </div>
 
@@ -671,26 +675,9 @@ footer p{font-size:10px;color:#aaa;}
     <h2 style="font-style:italic;text-transform:uppercase;">A decisão é sua.</h2>
     <p>Você vai continuar sofrendo por amor ou vai recuperar o controle da sua vida emocional?</p>
     <p style="margin-top:0;margin-bottom:24px;">Eu sei (e você também sabe): <strong style="color:#fff;">a opção 2 é a mais inteligente.</strong><br>Então clique no botão abaixo e acesse agora mesmo o <em>Fim do Apego Emocional.</em></p>
-    <a href="#oferta" class="cta-btn-white">QUERO TER CONTROLE EMOCIONAL</a>
+    <a href="https://pay.cakto.com.br/35ny4qf_950049" target="_blank" rel="noopener" class="cta-btn-white">QUERO TER CONTROLE EMOCIONAL</a>
     <p class="urgency-note">Acesso imediato após a confirmação do pagamento</p>
   </section>
-
-  <!-- AUTORA -->
-  <section class="author-section">
-    <h2 class="sec-title">Quem é Lucimar Freire</h2>
-    <div class="author-inner" data-reveal>
-      <img class="author-photo-full" src="uploads/opt/autora-lu-full.webp" alt="Lucimar Freire, terapeuta emocional" loading="lazy" decoding="async" width="760" height="1351">
-      <div>
-        <p class="author-name">Lucimar Freire</p>
-        <p class="author-role">Terapeuta Emocional · 10 anos de prática clínica</p>
-      </div>
-      <div class="author-bio">
-        <p>Lucimar Freire é terapeuta emocional há 10 anos. Cresceu em uma família emocionalmente instável. A ansiedade a consumia. O medo de abandono guiava as suas decisões. Aos 20 anos, suas crises eram tão intensas que ela acreditava que nunca mais teria paz.</p>
-        <p>Foi quando ela mergulhou no estudo do sistema emocional, dos padrões de apego e das técnicas de regulação mais modernas. Transformou sua dor em método. E hoje, já ajudou <strong style="color:var(--text);">milhares de mulheres</strong> a retomarem o controle, mesmo nos piores momentos.</p>
-      </div>
-    </div>
-  </section>
-
 
   <!-- CTA FINAL -->
   <section class="offer-section" style="border-top:1px solid var(--border);">
@@ -699,7 +686,7 @@ footer p{font-size:10px;color:#aaa;}
       <div class="offer-price">9x de R$ 8,40</div>
       <div class="offer-price-sub">ou R$ 67 à vista</div>
       <p class="offer-price-note">Menos que 1 mês de Netflix</p>
-      <a href="#oferta" class="cta-btn">QUERO TER CONTROLE EMOCIONAL</a>
+      <a href="https://pay.cakto.com.br/35ny4qf_950049" target="_blank" rel="noopener" class="cta-btn">QUERO TER CONTROLE EMOCIONAL</a>
       <p class="offer-trust">🔒 Pagamento 100% seguro · ⚡ Acesso imediato</p>
     </div>
   </section>
