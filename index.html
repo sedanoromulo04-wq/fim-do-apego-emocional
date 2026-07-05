@@ -78,8 +78,10 @@ h1,h2,h3,.sec-title,.step-title,.bonus-name,.access-title,
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;will-change:auto;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.5) 0%,rgba(0,0,0,.72) 100%);z-index:1;}
 .hero-content{position:relative;z-index:3;padding:40px 22px;width:100%;}
-.hero h1{font-family:var(--heading);font-weight:700;font-size:34px;line-height:1.12;color:#fff;text-align:center;font-style:italic;text-transform:uppercase;letter-spacing:.01em;}
+.hero h1{font-family:var(--heading);font-weight:700;font-size:28px;line-height:1.25;color:#fff;text-align:center;font-style:normal;text-transform:none;letter-spacing:.01em;}
 .hero h1 span{color:#E9C4BC;}
+.hero-sub{font-family:'Nunito',sans-serif;font-size:15px;line-height:1.6;color:rgba(255,255,255,.92);margin-top:16px;max-width:420px;margin-left:auto;margin-right:auto;}
+.hero-cta{max-width:420px;margin-left:auto;margin-right:auto;font-size:15px;}
 
 /* SEÇÕES */
 section{padding:44px 22px;background:#ffffff;}
@@ -273,7 +275,9 @@ footer p{font-size:10px;color:#aaa;}
   /* HERO — full-bleed, sem o limite de 560px, headline grande */
   .hero{min-height:88vh;margin:0 calc((1080px - 100vw)/2);width:100vw;max-width:100vw;}
   .hero-content{max-width:920px;margin:0 auto;padding:56px 40px;}
-  .hero h1{font-size:62px;line-height:1.08;}
+  .hero h1{font-size:46px;line-height:1.18;}
+  .hero-sub{font-size:19px;max-width:560px;}
+  .hero-cta{max-width:480px;font-size:18px;}
 
   /* DEPOIMENTOS — grid responsivo de prints */
   .testimonials .sec-title{font-size:34px;}
@@ -403,7 +407,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>Recupere o Seu Valor ao Dominar Suas Emoções e Faça Ele Sentir <span>Medo de Perder Você Para Sempre</span></h1>
+      <h1>Você ama tanto que esquece de ser amada <span>— e chama isso de amor.</span></h1>
+      <p class="hero-sub">Um protocolo de 48 horas pra parar de amar do jeito que dói. Por R$ 37 — menos que uma pizza, menos do que já custou cada noite em claro por causa dele.</p>
+      <a href="https://pay.cakto.com.br/35ny4qf_950049" target="_blank" rel="noopener" class="cta-btn hero-cta">LIBERAR MEU ACESSO — R$ 37 POR TEMPO LIMITADO</a>
     </div>
   </section>
 
