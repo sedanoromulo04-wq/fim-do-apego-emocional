@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#A85D54">
 <title>Fim do Apego Emocional: Protocolo 48H</title>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1744132423436296');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1744132423436296&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -488,6 +505,16 @@ footer{background:#231A17;color:rgba(255,255,255,.5);text-align:center;font-size
   window.addEventListener('scroll',function(){
     st.classList.toggle('show', window.scrollY>700);
   },{passive:true});
+})();
+// Meta Pixel: InitiateCheckout no clique de qualquer CTA de compra
+(function(){
+  document.querySelectorAll('a[href*="pay.cakto.com.br"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', { value: 37.00, currency: 'BRL' });
+      }
+    });
+  });
 })();
 </script>
 </body>
